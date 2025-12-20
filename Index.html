@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gniocco e Tigelle da Kabira</title>
+<link rel="icon" type="image/png" href="img/logo.png">
+<style>
+/* =========================
+   BACKGROUND GENERALE
+========================= */
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Georgia', serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: url("img/pattern_background2.png") center / cover no-repeat;
+}
+
+.site-logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  bottom: 20px;
+  
+}
+
+.site-logo img {
+  width: 100px;      /* puoi cambiare dimensione */
+  height: auto;
+}
+
+/* =========================
+   FLIPBOOK
+========================= */
+#flipbook {
+  width: 360px;
+  height: 640px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+/* =========================
+   PAGINE BASE
+========================= */
+.page {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* =========================
+   PAGINE SPECIALI
+========================= */
+.cover {
+  background-image: url("img/copertina.png");
+}
+
+.back-cover {
+  background-image: url("img/copertina_dietro.png");
+}
+
+.blank-page {
+  background-image: url("img/pre_post_copertina2.png");
+  pointer-events: none;
+}
+
+/* =========================
+   PAGINE MENU (1–6)
+========================= */
+.page-1 { background-image: url("img/1.png"); }
+.page-2 { background-image: url("img/2.png"); }
+.page-3 { background-image: url("img/3.png"); }
+.page-4 { background-image: url("img/4.png"); }
+.page-5 { background-image: url("img/5.png"); }
+.page-6 { background-image: url("img/6.png"); }
+
+/* =========================
+   CONTROLLI
+========================= */
+.controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 40px;
+}
+
+.control-btn {
+  width: 64px;
+  height: 64px;
+  cursor: pointer;
+}
+
+.control-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+</style>
+</head>
+
+<body>
+  <div class="site-logo">
+  <img src="img/logo.png" alt="Logo">
+</div>
+
+<!-- ===== FLIPBOOK ===== -->
+<div id="flipbook">
+  <div class="page blank-page"></div>
+  <div class="page cover"></div>
+
+  <div class="page page-1"></div> <!-- 1 -->
+  <div class="page page-2"></div> <!-- 2 -->
+  <div class="page page-3"></div> <!-- 3 -->
+  <div class="page page-4"></div> <!-- 4 -->
+  <div class="page page-5"></div> <!-- 5 -->
+  <div class="page page-6"></div> <!-- 6 -->
+
+  <div class="page back-cover"></div>
+  <div class="page blank-page"></div>
+</div>
+
+<!-- ===== CONTROLLI ===== -->
+<div class="controls">
+  <div class="control-btn" id="prev">
+    <img src="img/INDIETRO.PNG" alt="Indietro">
+  </div>
+  <div class="control-btn" id="next">
+    <img src="img/AVANTI.png" alt="Avanti">
+  </div>
+</div>
+
+<!-- ===== SCRIPT ===== -->
+<script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+<script>
+const pageFlip = new St.PageFlip(document.getElementById("flipbook"), {
+  width: 360,
+  height: 640,
+  size: "fixed",
+  usePortrait: true,
+  showCover: false,
+  drawShadow: true,
+  maxShadowOpacity: 0.4,
+  flippingTime: 900,
+  startPage: 1
+});
+
+pageFlip.loadFromHTML(document.querySelectorAll("#flipbook .page"));
+
+document.getElementById("next").onclick = () => pageFlip.flipNext();
+document.getElementById("prev").onclick = () => pageFlip.flipPrev();
+
+document.querySelector(".cover").onclick = () => pageFlip.flipNext();
+</script>
+
+</body>
+</html>
