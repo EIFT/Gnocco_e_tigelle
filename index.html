@@ -1,15 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gniocco e Tigelle da Kabira</title>
-<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="icon" type="image/png" href="img/logo.PNG">
 <style>
-/* =========================
-   BACKGROUND GENERALE
-========================= */
+
 html, body {
   margin: 0;
   height: 100%;
@@ -34,13 +31,10 @@ body {
 }
 
 .site-logo img {
-  width: 100px;      /* puoi cambiare dimensione */
+  width: 100px;     
   height: auto;
 }
 
-/* =========================
-   FLIPBOOK
-========================= */
 #flipbook {
   width: 360px;
   height: 640px;
@@ -49,9 +43,6 @@ body {
   overflow: hidden;
 }
 
-/* =========================
-   PAGINE BASE
-========================= */
 .page {
   width: 100%;
   height: 100%;
@@ -60,9 +51,6 @@ body {
   background-repeat: no-repeat;
 }
 
-/* =========================
-   PAGINE SPECIALI
-========================= */
 .cover {
   background-image: url("img/copertina.png");
 }
@@ -75,10 +63,7 @@ body {
   background-image: url("img/pre_post_copertina2.png");
   pointer-events: none;
 }
-
-/* =========================
-   PAGINE MENU (1–6)
-========================= */
+   
 .page-1 { background-image: url("img/1.png"); }
 .page-2 { background-image: url("img/2.png"); }
 .page-3 { background-image: url("img/3.png"); }
@@ -86,9 +71,6 @@ body {
 .page-5 { background-image: url("img/5.png"); }
 .page-6 { background-image: url("img/6.png"); }
 
-/* =========================
-   CONTROLLI
-========================= */
 .controls {
   margin-top: 20px;
   display: flex;
@@ -116,23 +98,21 @@ body {
   <img src="img/logo.png" alt="Logo">
 </div>
 
-<!-- ===== FLIPBOOK ===== -->
 <div id="flipbook">
   <div class="page blank-page"></div>
   <div class="page cover"></div>
 
-  <div class="page page-1"></div> <!-- 1 -->
-  <div class="page page-2"></div> <!-- 2 -->
-  <div class="page page-3"></div> <!-- 3 -->
-  <div class="page page-4"></div> <!-- 4 -->
-  <div class="page page-5"></div> <!-- 5 -->
-  <div class="page page-6"></div> <!-- 6 -->
+  <div class="page page-1"></div> 
+  <div class="page page-2"></div> 
+  <div class="page page-3"></div> 
+  <div class="page page-4"></div> 
+  <div class="page page-5"></div> 
+  <div class="page page-6"></div> 
 
   <div class="page back-cover"></div>
   <div class="page blank-page"></div>
 </div>
 
-<!-- ===== CONTROLLI ===== -->
 <div class="controls">
   <div class="control-btn" id="prev">
     <img src="img/indietro.PNG" alt="Indietro">
@@ -142,7 +122,6 @@ body {
   </div>
 </div>
 
-<!-- ===== SCRIPT ===== -->
 <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
 <script>
 const pageFlip = new St.PageFlip(document.getElementById("flipbook"), {
