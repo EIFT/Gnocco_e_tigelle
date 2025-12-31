@@ -144,23 +144,9 @@ pageFlip.loadFromHTML(document.querySelectorAll("#flipbook .page"));
 document.getElementById("next").onclick = () => pageFlip.flipNext();
 document.getElementById("prev").onclick = () => pageFlip.flipPrev();
 
-<!-- document.querySelector(".cover").onclick = () => pageFlip.flipNext(); -->
-
-document.querySelectorAll(".page").forEach(page => {
-  page.onclick = (e) => {
-    const pageIndex = pageFlip.getCurrentPageIndex();
-    const clickX = e.clientX;
-    const pageWidth = window.innerWidth;
-    
-    if (clickX < pageWidth / 2 && pageIndex > 0) {
-      pageFlip.flipPrev();
-    } else if (clickX >= pageWidth / 2 && pageIndex < pageFlip.getPageCount() - 2) {
-      pageFlip.flipNext();
-    }
-  };
-});
-
+document.querySelector(".cover").onclick = () => pageFlip.flipNext();
 </script>
 
 </body>
 </html>
+
